@@ -3,6 +3,10 @@ import { View } from 'react-native'
 
 export default class SettingsScreen extends React.Component {
 
+  static navigationOptions = {
+    header: null,
+  };
+
   render() {
     return (
     <View>
