@@ -2,7 +2,11 @@ import React from 'react';
 import {Container, Content, Form, Item, Input, Label, H3} from 'native-base'
 import style from './style'
 
+//Components
 import ButtonSubmit from '../../components/ButtonSubmit'
+
+//Utils
+import {saveDeckTitle} from '../../helpers/storageHelper'
 
 export default class SettingsScreen extends React.Component {
 
@@ -14,8 +18,10 @@ export default class SettingsScreen extends React.Component {
     deckTitle: ''
   }
 
-  submitTitle = () => {
-    console.warn('clicou')
+  createDeck = () => {
+    saveDeckTitle(this.state.deckTitle)
+    this.props.navigation.navigate('DecksList')
+    console.warn(this.props)
   }
 
   render() {
@@ -33,7 +39,7 @@ export default class SettingsScreen extends React.Component {
                 value={this.state.deckTitle}
               />
             </Item>
-            <ButtonSubmit submitTitle={this.submitTitle}/>
+            <ButtonSubmit createDeck={this.createDeck}/>
           </Form>
       </Content>
     </Container>
