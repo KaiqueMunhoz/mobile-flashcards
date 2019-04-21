@@ -11,19 +11,19 @@ export default class SettingsScreen extends React.Component {
   };
 
   render() {
-    const {title, buttonSubmit, textSubmit} = style
+    const {title} = style
 
     return (
       <Container>
-      <Content>
-        <Form>
-        <H3 style={title}>Qual é o titulo do novo baralho?</H3>
-          <Item floatingLabel last>
-            <Label>Titulo</Label>
-            <Input />
-          </Item>
-          <ButtonSubmit />
-        </Form>
+        <Content>
+          <Form>
+          <H3 style={title}>Qual é o titulo do novo baralho?</H3>
+            <Item floatingLabel last>
+              <Label>Titulo</Label>
+              <Input />
+            </Item>
+            <ButtonSubmit />
+          </Form>
       </Content>
     </Container>
     )
