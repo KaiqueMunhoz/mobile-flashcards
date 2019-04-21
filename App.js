@@ -1,6 +1,6 @@
 import React from 'react';
-import { Platform, Text, StyleSheet, View } from 'react-native';
-import { AppLoading, Asset, Font, Icon } from 'expo';
+import { Text, StyleSheet, View } from 'react-native';
+import {ContainerView} from './style.js';
 import AppNavigator from './src/navigation/AppNavigator';
 
 export default class App extends React.Component {
@@ -9,9 +9,9 @@ export default class App extends React.Component {
   render() {
     
       return (
-        <View>
+        <ContainerView>
           <Text>Hello World</Text>
-        </View>
+        </ContainerView>
          
         
       );
