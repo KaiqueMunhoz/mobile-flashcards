@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import {Container, Content, List, ListItem} from 'native-base'
-import { getData } from '../../utils/api'
+import { initializeDeckData , getDecksData } from '../../helpers/storageHelper'
 
 import Deck from '../../components/Deck'
 
@@ -17,7 +17,7 @@ export default class HomeScreen extends React.Component {
 
   componentDidMount() {
     this.setState({
-      decks : getData()
+      decks: initializeDeckData()
     })
   }
 
