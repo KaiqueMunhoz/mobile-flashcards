@@ -1,15 +1,19 @@
 import React from 'react';
-import {ContainerView} from './style.js';
+import {View} from 'react-native'
+import style from './style.js';
 import AppNavigator from './src/navigation/AppNavigator';
 
 export default class App extends React.Component {
   
   render() {
-      return (
-        <ContainerView>
-          <AppNavigator />
-        </ContainerView>
-      );
-    } 
-  }
+
+    const {container} = style
+    
+    return (
+      <View style={container}>
+        <AppNavigator />
+      </View>
+    );
+  } 
+}
 

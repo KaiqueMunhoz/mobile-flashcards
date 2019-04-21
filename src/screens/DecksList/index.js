@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import { getData } from '../../utils/api'
 import Card from '../../components/Card'
+import style from './style'
 
 export default class HomeScreen extends React.Component {
 
@@ -23,9 +24,10 @@ export default class HomeScreen extends React.Component {
 
   render() {
     const {decks} = this.state
+    const {container} = style
 
     return (
-      <View>
+      <View style={container} >
         {
           Object.keys(decks).map(deck => (
             <Card key={deck}/>
