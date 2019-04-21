@@ -19,3 +19,20 @@ export const getDecksData = () => {
       console.warn(`getDeckData ${err}`)
     });
 }
+
+export const saveDeckTitle = title => {
+  getDecksData().then(oldValues => {
+    const newValues = {...createDeckObject(title), ...oldValues}
+    updateDecksData(newValues)
+  })
+}
+
+createDeckObject = title => {
+  const newDeck = JSON.stringify({
+    [title] : {
+      title,
+      questions: []
+    }
+  })
+  return JSON.parse(newDeck)
+}
