@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text} from 'react-native'
-import {Container, Content, Form, Item, Input, Label, H3 ,Button} from 'native-base'
+import {Container, Content, Form, Item, Input, Label, H3} from 'native-base'
 import style from './style'
+
+import ButtonSubmit from '../../components/ButtonSubmit'
 
 export default class SettingsScreen extends React.Component {
 
@@ -21,9 +22,7 @@ export default class SettingsScreen extends React.Component {
             <Label>Titulo</Label>
             <Input />
           </Item>
-          <Button style={buttonSubmit} block info>
-            <Text style={textSubmit}>Salvar</Text>
-          </Button>
+          <ButtonSubmit />
         </Form>
       </Content>
     </Container>
