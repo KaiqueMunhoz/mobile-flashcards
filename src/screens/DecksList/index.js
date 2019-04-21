@@ -7,6 +7,10 @@ import Card from '../../components/Card'
 
 export default class HomeScreen extends React.Component {
 
+  static navigationOptions = {
+    header: null,
+  };
+
   state = {
     decks : {}
   }
