@@ -10,6 +10,14 @@ export default class SettingsScreen extends React.Component {
     header: null,
   };
 
+  state = {
+    deckTitle: ''
+  }
+
+  submitTitle = () => {
+    console.warn('clicou')
+  }
+
   render() {
     const {title} = style
 
@@ -20,9 +28,12 @@ export default class SettingsScreen extends React.Component {
           <H3 style={title}>Qual é o titulo do novo baralho?</H3>
             <Item floatingLabel last>
               <Label>Titulo</Label>
-              <Input />
+              <Input
+                onChangeText={deckTitle => this.setState({deckTitle})}
+                value={this.state.deckTitle}
+              />
             </Item>
-            <ButtonSubmit />
+            <ButtonSubmit submitTitle={this.submitTitle}/>
           </Form>
       </Content>
     </Container>
