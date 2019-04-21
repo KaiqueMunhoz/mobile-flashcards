@@ -1,3 +1,7 @@
+import {AsyncStorage} from 'react-native'
+
+const DECKS_KEY = 'DECKS_KEY'
+
 const data = {
     React: {
       title: 'React',
@@ -25,4 +29,13 @@ const data = {
 
 export const getData = () => {
     return data
+}
+
+export const saveDeckTitle = title => {
+  return AsyncStorage.getItem(DECKS_KEY, JSON.stringify({
+    [title]: {
+      title,
+      questions: []
+    }
+  }))
 }
