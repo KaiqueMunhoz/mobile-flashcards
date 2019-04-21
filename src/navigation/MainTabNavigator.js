@@ -3,16 +3,15 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import DecksListScreen from '../screens/DecksList'; 
+import NewDeckScreen from '../screens/NewDeck';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+const DecksListStack = createStackNavigator({
+  DecksList: DecksListScreen
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+DecksListStack.navigationOptions = {
+  tabBarLabel: 'Decks',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -25,26 +24,12 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const NewDeckStack = createStackNavigator({
+  NewDeck: NewDeckScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
-    />
-  ),
-};
-
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
-});
-
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+NewDeckStack.navigationOptions = {
+  tabBarLabel: 'NewDeck',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -54,7 +39,6 @@ SettingsStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+  DecksListStack,
+  NewDeckStack,
 });
