@@ -3,12 +3,12 @@ import {Text} from 'react-native'
 import {Button} from 'native-base'
 import style from './style'
 
-const ButtonSubmit = ({submitTitle}) => {
+const ButtonSubmit = ({createDeck}) => {
 
     const {buttonSubmit, textSubmit} = style
 
     return(
-        <Button onPress={submitTitle} style={buttonSubmit} block info>
+        <Button onPress={createDeck} style={buttonSubmit} block info>
             <Text style={textSubmit}>Salvar</Text>
         </Button>
     )
