@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import {Container, Content, List, ListItem} from 'native-base'
 import { initializeDeckData , getDecksData } from '../../helpers/storageHelper'
 
@@ -19,9 +18,13 @@ export default class HomeScreen extends React.Component {
     getDecksData().then(decks => this.setState({decks}))
   }
 
+  handleClick = () => {
+    this.props.navigation.navigate('DeckScreen')
+  }
+
   render() {
     const {decks} = this.state
-    console.warn(`render`)
+    
     return (
       <Container>
         <Content>
@@ -29,7 +32,7 @@ export default class HomeScreen extends React.Component {
             {Object.keys(decks).map(deck => {
               const {title, questions} = decks[deck]
               return (
-                <ListItem key={deck} >
+                <ListItem onPress={this.handleClick} key={deck} >
                   <Deck title={title} numberCards={questions.length} />
                 </ListItem>
               ) 
