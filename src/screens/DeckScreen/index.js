@@ -11,6 +11,14 @@ const DeckScreen = (props) => {
 
     const card = questions.length === 1 || 0 ? 'carta' : 'cartas'
 
+    const goToNewCard = () => {
+        props.navigation.navigate('DecksScreen')
+    }
+    
+    const goToQuiz = () => {
+        props.navigation.navigate('QuizScreen', {questions})
+    }
+
     return(
         <Container style={container}>
             <Content>
@@ -19,10 +27,10 @@ const DeckScreen = (props) => {
                     <H3 style={subtitle}>{`${questions.length} ${card}`}</H3>
                 </View>
 
-                <Button style={addCard} bordered info>
+                <Button onPress={goToNewCard} style={addCard} bordered info>
                     <Text>Adicionar carta</Text>
                 </Button>
-                <Button style={startQuiz} info>
+                <Button onPress={goToQuiz} style={startQuiz} info>
                     <Text style={textQuiz} >Começar quiz</Text>
                 </Button>
             </Content>
