@@ -6,7 +6,7 @@ export default StyleSheet.create({
         flex: 1,
         alignItems: 'center',
     },
-    title: {
+    titleStyle: {
         marginTop: 50,
     },
     subtitle: {

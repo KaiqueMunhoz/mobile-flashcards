@@ -18,8 +18,8 @@ export default class HomeScreen extends React.Component {
     getDecksData().then(decks => this.setState({decks}))
   }
 
-  handleClick = () => {
-    this.props.navigation.navigate('DeckScreen')
+  handleClick = (title, questions) => {
+    this.props.navigation.navigate('DeckScreen',{title, questions})
   }
 
   render() {
@@ -32,7 +32,7 @@ export default class HomeScreen extends React.Component {
             {Object.keys(decks).map(deck => {
               const {title, questions} = decks[deck]
               return (
-                <ListItem onPress={this.handleClick} key={deck} >
+                <ListItem onPress={() => this.handleClick(title, questions)} key={deck} >
                   <Deck title={title} numberCards={questions.length} />
                 </ListItem>
               ) 
