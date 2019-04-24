@@ -1,9 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
-import {Container, Content, List, ListItem, Text, Body} from 'native-base'
-import { getData } from '../../utils/api'
-import Card from '../../components/Card'
-import style from './style'
+import {Container, Content, List, ListItem} from 'native-base'
+import { initializeDeckData , getDecksData } from '../../helpers/storageHelper'
+
+import Deck from '../../components/Deck'
 
 export default class HomeScreen extends React.Component {
 
@@ -12,32 +12,25 @@ export default class HomeScreen extends React.Component {
   };
 
   state = {
-    decks : {}
+    decks : initializeDeckData()
   }
 
   componentDidMount() {
-    this.setState({
-      decks : getData()
-    })
+    getDecksData().then(decks => this.setState({decks}))
   }
 
   render() {
     const {decks} = this.state
-    const {container} = style
-
+    console.warn(`render`)
     return (
       <Container>
         <Content>
           <List>
             {Object.keys(decks).map(deck => {
               const {title, questions} = decks[deck]
-
               return (
                 <ListItem key={deck} >
-                <Body>
-                  <Text>{title}</Text>
-                  <Text note>{questions.length} cards</Text>
-                </Body>
+                  <Deck title={title} numberCards={questions.length} />
                 </ListItem>
               ) 
             })}
