@@ -14,7 +14,12 @@ export const updateDecksData = decks => {
 
 export const getDecksData = () => {
   return AsyncStorage.getItem(DECKS_KEY)
-    .then(decks => JSON.parse(decks))
+    .then(decks => {
+      if(decks === undefined) {
+        return initializeDeckData()
+      }
+      return JSON.parse(decks)
+    })
     .catch((err) => {
       console.warn(`getDeckData ${err}`)
     });

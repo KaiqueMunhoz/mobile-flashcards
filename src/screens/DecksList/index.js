@@ -12,18 +12,16 @@ export default class HomeScreen extends React.Component {
   };
 
   state = {
-    decks : {}
+    decks : initializeDeckData()
   }
 
   componentDidMount() {
-    this.setState({
-      decks: initializeDeckData()
-    })
+    getDecksData().then(decks => this.setState({decks}))
   }
 
   render() {
     const {decks} = this.state
-
+    console.warn(`render`)
     return (
       <Container>
         <Content>
